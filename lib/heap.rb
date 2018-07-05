@@ -11,6 +11,11 @@ class BinaryMinHeap
   end
 
   def extract
+    BinaryMinHeap.swap(@store, 0, count-1)
+    ans = @store.pop
+    # debugger
+    BinaryMinHeap.heapify_down(@store, 0)
+    ans
   end
 
   def peek
@@ -19,7 +24,6 @@ class BinaryMinHeap
 
   def push(val)
     @store << val
-    # parent_idx = BinaryMinHeap.parent_idx(@store.length - 1)
     BinaryMinHeap.heapify_up(@store, @store.length - 1) unless @store.length == 1
   end
 
