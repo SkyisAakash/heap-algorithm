@@ -3,18 +3,24 @@ class BinaryMinHeap
   attr_reader :store, :prc
 
   def initialize(&prc)
+    @store = []
   end
 
   def count
+    @store.length
   end
 
   def extract
   end
 
   def peek
+    @store[0]
   end
 
   def push(val)
+    @store << val
+    # parent_idx = BinaryMinHeap.parent_idx(@store.length - 1)
+    BinaryMinHeap.heapify_up(@store, @store.length - 1) unless @store.length == 1
   end
 
   public
