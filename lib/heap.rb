@@ -51,11 +51,9 @@ class BinaryMinHeap
   end
 
   def self.heapify_down(array, parent_idx, len = array.length, &prc)
-    # debugger
     prc ||= Proc.new do |el1, el2|
       (el1 <=> el2)
     end
-    # debugger
     correct = false
     while correct == false
       correct = true
